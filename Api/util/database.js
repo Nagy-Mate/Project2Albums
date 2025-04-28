@@ -30,20 +30,19 @@ export function dbRun(sql, params = []){
 
 export async function initializeDatabase(){
     await dbRun("DROP TABLE IF EXISTS albums");
-    await dbRun("CREATE TABLE IF NOT EXISTS albums (id INTEGER PRIMARY KEY AUTOINCREMENT, band STRING, title STRING, releaseDate STRING, )");
+    await dbRun("CREATE TABLE IF NOT EXISTS albums (id INTEGER PRIMARY KEY AUTOINCREMENT, band STRING, title STRING, releaseDate DATE, genre STRING)");
 
     const timetable =[
-        {day: 'Hétfő', time: 1, subject: "Magyar"},
-        {day: 'Hétfő', time: 2, subject: "Matek"},
-        {day: 'Hétfő', time: 3, subject: "Töri"},
-        {day: 'Kedd', time: 4, subject: "Töri"},
-        {day: 'Kedd', time: 5, subject: "Php"},
-        {day: 'Szerda', time: 7, subject: "Js"},
-        {day: 'Szerda', time: 8, subject: "Js"},
-        {day: 'Csütörök', time: 3, subject: "C#"},
-        {day: 'Csütörök', time: 4, subject: "C#"},
-        {day: 'Péntek', time: 2, subject: "Angol"},
-        {day: 'Péntek', time:3, subject: "Php"},
+        ('Pink Floyd', 'The Dark Side of the Moon', '1973-03-01', 'Progressive Rock'),
+  ('Nirvana', 'Nevermind', '1991-09-24', 'Grunge'),
+  ('The Beatles', 'Abbey Road', '1969-09-26', 'Rock'),
+  ('Radiohead', 'OK Computer', '1997-05-21', 'Alternative Rock'),
+  ('Daft Punk', 'Discovery', '2001-03-12', 'Electronic'),
+  ('Metallica', 'Master of Puppets', '1986-03-03', 'Thrash Metal'),
+  ('Taylor Swift', '1989', '2014-10-27', 'Pop'),
+  ('Miles Davis', 'Kind of Blue', '1959-08-17', 'Jazz'),
+  ('Beyoncé', 'Lemonade', '2016-04-23', 'R&B'),
+  ('Kendrick Lamar', 'DAMN.', '2017-04-14', 'Hip-Hop')
 
     ];
 
