@@ -26,13 +26,15 @@ async function displayAlbums() {
             <td>${album.releaseDate}</td>
             <td>${album.genre}</td>
             <td>
-                <button onclick="confirmDelete('${album.id}')" title="Törlés">
-                    <i class="fas fa-trash-alt"></i>
+                <button class="delete" onclick="confirmDelete('${album.id}')" title="Törlés">
+                    <i class="fas fa-trash-alt"></i> <!-- Törlés ikon -->
                 </button>
-                <button onclick="editAlbum('${album.id}', '${album.band}', '${album.title}', '${album.releaseDate}', '${album.genre}')" title="Szerkesztés">
-                    <i class="fas fa-edit"></i>
+                <button class="edit" onclick="editAlbum('${album.id}', '${album.band}', '${album.title}', '${album.releaseDate}', '${album.genre}')" title="Szerkesztés">
+                    <i class="fas fa-edit"></i> <!-- Szerkesztés ikon -->
                 </button>
             </td>
+
+
 
         </tr>`;
         counter++;
