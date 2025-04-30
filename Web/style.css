@@ -49,18 +49,22 @@ input[type="date"] {
 
 
 button {
-    padding: 0.5rem 1rem;
-    margin: 0.2rem;
+    background: none;
     border: none;
-    border-radius: 6px;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    margin-right: 8px;
+    color: #444;
 }
 
 button:hover {
-    opacity: 0.95;
+    color: #d11a2a; /* pirosas törléshez pl. */
 }
+
+button i.fa-edit:hover {
+    color: #0a7adb;
+}
+
 
 button[type="submit"] {
     background-color: #2ecc71;

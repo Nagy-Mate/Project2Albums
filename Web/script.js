@@ -14,7 +14,7 @@ async function displayAlbums() {
     const div = document.getElementById('table');
 
     let table = '<table>';
-    table += '<tr><th>N</th><th>Band</th><th>Title</th><th>Release date</th><th>Genre</th><th>Actions</th></tr>';
+    table += '<tr><th> </th><th>Band</th><th>Title</th><th>Release date</th><th>Genre</th><th>Actions</th></tr>';
 
     let counter = 1;
     data.forEach(album => {
@@ -25,10 +25,15 @@ async function displayAlbums() {
             <td>${album.title}</td>
             <td>${album.releaseDate}</td>
             <td>${album.genre}</td>
-            <td class="actions">
-                <button onclick="confirmDelete('${album.id}')">Törlés</button>
-                <button onclick="editAlbum('${album.id}', \`${album.band}\`, \`${album.title}\`, \`${album.releaseDate}\`, \`${album.genre}\`)">Szerkesztés</button>
+            <td>
+                <button onclick="confirmDelete('${album.id}')" title="Törlés">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+                <button onclick="editAlbum('${album.id}', '${album.band}', '${album.title}', '${album.releaseDate}', '${album.genre}')" title="Szerkesztés">
+                    <i class="fas fa-edit"></i>
+                </button>
             </td>
+
         </tr>`;
         counter++;
     });
