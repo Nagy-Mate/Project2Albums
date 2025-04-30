@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Albums</title>
+</head>
+<body>
+    <h1>Albums</h1>
+
+<!-- Új album lenyitható form -->
+<button id="addToggle" onclick="toggleAddForm()">Új album hozzáadása</button>
+
+<div id="addFormContainer" style="display: none;">
+    <form id="albumForm" onsubmit="event.preventDefault(); createAlbum();">
+        <h2>Új album hozzáadása</h2>
+        <label for="band">Előadó:</label>
+        <input type="text" id="band" required>
+
+        <label for="title">Cím:</label>
+        <input type="text" id="title" required>
+
+        <label for="releaseDate">Megjelenési dátum:</label>
+        <input type="date" id="releaseDate" required>
+
+        <label for="genre">Műfaj:</label>
+        <input type="text" id="genre" required>
+
+        <button type="submit">Album hozzáadása</button>
+    </form>
+</div>
+
+<!-- Táblázat -->
+<div id="table"></div>
+
+<!-- Szerkesztés -->
+<h2 id="editTitleHeading" style="display: none;">Album szerkesztése</h2>
+<form id="editForm" onsubmit="event.preventDefault(); updateAlbum();" style="display: none;">
+    <input type="hidden" id="editId">
+
+    <label for="editBand">Előadó:</label>
+    <input type="text" id="editBand" required>
+
+    <label for="editTitle">Cím:</label>
+    <input type="text" id="editTitle" required>
+
+    <label for="editReleaseDate">Megjelenési dátum:</label>
+    <input type="date" id="editReleaseDate" required>
+
+    <label for="editGenre">Műfaj:</label>
+    <input type="text" id="editGenre" required>
+
+    <button type="submit">Mentés</button>
+</form>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
