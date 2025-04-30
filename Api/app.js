@@ -34,7 +34,7 @@ app.put("/album/:id", async (req, res) =>{
     const id = req.params.id;
     const data = await dbGet("SELECT * FROM albums WHERE id = ?;", [id]);
 
-    if(data.length === 0){
+    if(!data){
         return res.status(404).json({message: "Not found"});
     }
 
@@ -45,11 +45,9 @@ app.put("/album/:id", async (req, res) =>{
     }
 
      try {
-        // Frissítjük az adatbázist
         await dbRun("UPDATE albums SET band = ?, title = ?, releaseDate = ?, genre = ? WHERE id = ?;", [band, title, releaseDate, genre, id]);
         return res.status(200).json({ id, band, title, releaseDate, genre });
     } catch (error) {
-        // Ha hiba történt az adatbázis műveletnél
         console.error(error);
         return res.status(500).json({ message: "Error updating album" });
     }
@@ -57,12 +55,15 @@ app.put("/album/:id", async (req, res) =>{
 
 app.delete("/album/:id", async (req, res)=>{
     const id = req.params.id;
-    const data = dbGet("SELECT * FROM albums WHERE id = ?;", [id]);
+    const data = await dbGet("SELECT * FROM albums WHERE id = ?;", [id]);
+
     if(!data){
         return res.status(404).json({message: "Not found"});
     }
+        
     await dbRun("DELETE FROM albums WHERE id = ?;", [id]);
     res.status(200).json({message: "Successfuly deleted! "});
+
 });
 
 app.use((req, res, next, err) =>{
